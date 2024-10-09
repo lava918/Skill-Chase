@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Chase - Web Development Course</title>
+    
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", system-ui;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 16px;
+        }
+        
+        .top-banner {
+            background-color: #7c3aed;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+        .top-banner a {
+            color: #fde68a;
+            text-decoration: none;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background-color: #f3f4f6;
+            flex-wrap: wrap;
+        }
+        .logo {
+            width: 70px;
+            height: 70px;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        nav a {
+            font-size: 20px;
+            margin: 10px;
+            text-decoration: none;
+            color: #4b5563;
+        }
+        .login-btn {
+            margin: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #7c3aed;
+            width: 70px;
+            padding-left: 10px;
+            padding-bottom: 3px;
+            border: 1px solid #7c3aed;
+            border-radius: 100px 100px 0px 100px;
+            transition: 0.2s;
+            
+        }
+        .login-btn:hover{
+            text-decoration: none;
+            transform: scale(1.1);
+        }
+        nav a:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            /* padding: 10px; */
+        }
+        .left-content {
+            /* margin-bottom: 30px; */
+            max-width: 100%;
+            margin: 20px;
+        }
+        main h1 {
+            font-size: 3.8em;
+            color: #1f2937;
+            font-weight: 700;
+        }
+        .features {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features li{
+            font-size: 20px;
+        }
+        .features li::before {
+            content: "»";
+            color: #fbbf24;
+            margin-right: 10px;
+        }
+        .rating {
+            color: #fbbf24;
+            font-size: 22px;
+        }
+        .form-container {
+            background-color: #7c3aed;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 16px;
+        }
+        .form-container h2 {
+            font-size: 28px;
+            margin-top: 0;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        form input, form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #fbbf24;
+            border: none;
+            border-radius: 5px;
+            color: #1f2937;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .form-footer {
+            margin-top: 20px;
+        }
+        .form-footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (min-width: 768px) {
+            main {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            .left-content {
+                flex: 1;
+                padding-right: 40px;
+                margin-bottom: 0;
+            }
+            .form-container {
+                width: 300px;
+                margin-right: 30px;
+        
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .top-banner {
+                font-size: 0.8em;
+            }
+            header {
+                justify-content: center;
+            }
+            nav {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            .login-btn {
+                margin-top: 10px;
+            }
+        }
+        
+        .Second {
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .left-column, .right-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        .purple-box {
+            background-color: #8a6bff;
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 20px;
+            font-size: 20px;
+        }
+        .icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .icon::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-color: #8a6bff;
+            mask-size: cover;
+        }
+        .icon-bolt::before {
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>');
+        }
+        .icon-money::before {
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>');
+        }
+        .icon-rocket::before {
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.5s-4 2.91-4 7.5v5h8v-5c0-4.59-4-7.5-4-7.5zm-2 15v-2h4v2h-4zm5.5 1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-5-1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/></svg>');
+        }
+        .collapsible {
+            background-color: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .active, .collapsible:hover {
+            background-color: #ccc;
+        }
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        
+        
+        .course-card {
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        
+            .course-card-header {
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+        
+            .icon-wrapper {
+                background-color: #fff;
+                border-radius: 50%;
+                padding: 10px;
+                display: inline-block;
+                margin-bottom: 15px;
+            }
+        
+            .rating-card {
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        
+        
+        
+            .mentors{
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+            }
+            .mentors hr{
+                transform: translateX(40px);
+            }
+            
+            .mentors h1{
+                font-weight: 400;
+                font-size: 40px;
+            }
+            .mentors h4{
+                font-weight: 400;
+                font-size: 20px;
+                padding: 0 10px 0 10px;
+            }
+            
+            .mentors .index button h2{
+                margin-top: 24px;
+                font-size: 24px;
+            }
+            
+            .mentors .index button h5{
+                font-weight: 400;
+                font-size: 14px;
+            }
+            
+            .mentors .index button{
+                background-color: #7c3aed;
+                color: #fff;
+                border: none;
+                border-radius: 14px;
+                border-color: #7c3aed;
+                width: 290px;
+                height: 260px;
+                margin: 2px;
+            }
+            
+            .mentors .index button hr{
+                width: 200px;
+            }
+            
+            .mentors .index button img{
+                height: 60px;
+                width: 60px;
+                transition: 0.2s;
+            }
+            
+            .mentors .index button img:hover{
+                cursor: pointer;
+                transform: scale(1.3);
+            }
+        
+        
+        .syllabus{
+            margin: 12px;
+        }
+        .syllabus h1{
+            font-weight: 700;
+            font-size: 46px;
+        }
+        .syllabus span{
+            font-size: 24px;
+            font-weight: 600;
+            width: 100%;
+            padding: 12px;
+            color: #fff;
+        }
+        .module-header-active, .module-header{
+            background-color: #7c3aed;
+            height: 42px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .syllabus a{
+            color: #000;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        
+        .download-section .input-group input{
+            width: 50%;
+            height: auto;
+            padding: 14px;
+            margin-bottom: 20px;
+        }
+        .download-section h2{
+            font-size: 33px;
+            font-weight: 700;
+        }
+        .download-section button{
+            background: transparent;
+            border: #000 2px solid;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 12px 16px 12px 16px;
+            transition: 0.2s;
+        }
+        .download-section button:hover{
+            border: 2px #7c3aed solid;
+            color: #fff;
+            background-color: #7c3aed;
+            cursor: pointer;
+        }
+        
+        
+        
+        
+        .certify {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .certify .broly h2{
+            font-weight: 600;
+            font-size: 40px;
+        }
+        
+        .certify .broly ul li{
+            font-size: 22px;
+        }
+        
+        /* Default: side by side for larger screens */
+        .certify .broly, 
+        .certify .sample {
+            width: 50%;
+            height: auto;
+            padding: 20px;
+        }
+        
+        .certify .sample img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .certify {
+                flex-direction: column;
+            }
+        
+            .certify .broly, 
+            .certify .sample {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        
+        
+        .testimonial-section {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+            padding: 20px;
+            margin: 8px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-left {
+            flex: 1;
+            background-color: #6d4aff;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .testimonial-left h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .testimonial-left p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        .testimonial-right {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 20px);
+            position: relative;
+        }
+        
+        .testimonial-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-profile {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-profile img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .testimonial-profile h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .testimonial-profile span {
+            font-size: 0.9rem;
+            color: #6d6d6d;
+        }
+        
+        .quote-icon {
+            margin-top: 3px;
+            font-size: 4rem;
+            color: #e0e0e0;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-card {
+                width: calc(100% - 20px);
+            }
+        }
+        
+        
+        .footer {
+            background-color: white;
+            border: 1px solid #e3e4e8;
+            padding: 40px;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer h1 {
+            font-size: 42px;
+            color: #2a2b38;
+            font-weight: 700;
+        }
+        
+        .footer p {
+            font-size: 20px;
+            color: #6d6e7c;
+            margin-bottom: 20px;
+        }
+        
+        .footer a {
+            color: #5b52ff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+
+        
+</head>
+<body>
+    <div class="top-banner">
+        📢 Avail Discount On Our Selected Courses: Get Our Mentor-Led Courses for Flat 50% off! <a href="#">Explore</a>
+    </div>
+    <header>
+        <img src="https://skillchase.in/images/CompanyLogo.jpg" alt="Skill Chase" class="logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Explore Courses</a>
+            <a href="#">Career</a>
+            <a href="#">Resources</a>
+            <a href="#" class="login-btn">Login</a>
+        </nav>
+    </header>
+    <main>
+        <br><br><br>
+        <div class="left-content">
+            <h4>Web Development Course Online</h4>
+            <h1>9,000+ Companies In India Needs a Web Developer, You Can Be One!</h1>
+            <br><br>
+            <ul class="features">
+                <li><b>1 Year Course Access</b></li>
+                <li>40+ Hours of Live Class</li>
+                <li>2 Capstone Projects</li>
+                <li>Course Completion Certificate</li>
+            </ul>
+            <p class="rating">★★★★★ Rated 4.9/5 from over 600 reviews.</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Become a Better Web Developer</h2>
+            <hr>
+            <p>Over 200 students have already registered for the next batch!</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <select required>
+                    <option value="" disabled selected>When do you want to start?</option>
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                    
+                </select>
+                <button type="submit">SUBMIT</button>
+            </form>
+            
+            <div class="form-footer">
+                <p>Still have any doubt?</p>
+                <p>Get one-to-one mentorship.</p>
+                <a href="tel:+919971828049">📞 +91-9971828049</a>
+            </div>
+        </div>
+    </main>
+
+    <br><br>
+    <div class="Second">
+        <div class="left-column">
+            <div class="purple-box">
+                <h2>What You'll Learn?</h2>
+                <ul>
+                    <li>The intricate details of HTML5, CSS3, and Modern JavaScript for 2021.</li>
+                    <li>Make REAL web applications utilizing forefront advances.</li>
+                    <li>Make responsive, open, and delightful designs.</li>
+                    <li>Perceive and forestall regular security misuses like SQL-Injection and XSS.</li>
+                    <li>Proceed to learn and develop as an engineer, long after the course closes.</li>
+                    <li>Make a blog application without any preparation utilizing Node, Express, and MongoDB.</li>
+                    <li>Make a convoluted cry like application without any preparation.</li>
+                    <li>Convey your applications and work with cloud data sets.</li>
+                    <li>Make static HTML and CSS portfolio destinations and points of arrival.</li>
+                    <li>Take on a similar mindset as a designer. Become a specialist at Googling code questions!</li>
+                    <li>Make complex HTML structures with approvals.</li>
+                    <li>Execute full verification without any preparation!</li>
+                    <li>Use CSS Frameworks including Bootstrap 5, Semantic UI, and Bulma.</li>
+                </ul>
+            </div>
+            <button class="collapsible">Requirements</button>
+            <div class="content">
+                <p>Requirements content goes here.</p>
+            </div>
+            <button class="collapsible">Description</button>
+            <div class="content">
+                <p>Description content goes here.</p>
+            </div>
+            <button class="collapsible">Who is this course for?</button>
+            <div class="content">
+                <p>Target audience information goes here.</p>
+            </div>
+        </div>
+
+
+        <div class="right-column">
+            <br>
+            <h1><b>Why Study Web Development?</b></h1><br>
+            <hr>
+            <div class="icon icon-bolt">
+                <br><br><br>
+                <h4>Highly Demanded Jobs</h4>
+                <!-- <p>The demand is expected to grow by about 20% from 2012 to 2022.</p> -->
+            </div>
+            <hr>
+            <div class="icon icon-money">
+                <br><br><br>
+                <h4>Lucrative Career Option</h4>
+                <!-- <p>It is a relatively low-cost business to get into.</p> -->
+            </div>
+            <hr>
+            <div class="icon icon-money">
+                <br><br><br>
+                <h4>High Paying Jobs</h4>
+                <!-- <p>The average salary is $35,000 per year for entry-level web designer.</p> -->
+            </div>
+            <hr>
+            <div class="icon icon-rocket">
+                <br><br><br>
+                <h4>Fastest Growing Field</h4>
+                <!-- <p>The demand is expected to grow by 20% in the next ten years.</p> -->
+            </div>
+            <hr>
+        </div>
+    </div>
+
+
+    <br>
+    <hr><br>
+
+
+
+
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-4 mb-4">
+                <h1 class="fw-bold">Web Development Course Fee</h1>
+                <p class="text-muted">Quality learning, simplified and budget-friendly – just for you!</p>
+                <div class="rating-card bg-white p-3 mt-4">
+                    <p><i class="fas fa-quote-left" style="font-size: 2rem; color: #6c757d;"></i></p>
+                    <br><br><br><br><br><br><br><br>
+                    <div class="rating-card bg-light p-3 mt-4">
+                    <p><strong>Priyanshu K</strong></p>
+                    <p class="text-warning" style="  display: flex; flex-wrap: wrap; align-content: center;" ><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5-star rating</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="course-card bg-white text-center p-4">
+                            <div class="course-card-header bg-primary text-white py-3">
+                                <h5>Mentor-Led Program</h5>
+                                <h3>₹ 6,000/Course</h3>
+                            </div>
+                            <div class="mt-4">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-chalkboard-teacher" style="font-size: 2rem; color: #6c757d;"></i>
+                                </div>
+                                <ul class="list-unstyled text-start">
+                                    <li>• Live Mentorship</li>
+                                    <li>• Project-Based Learning</li>
+                                    <li>• Recorded Video Lectures</li>
+                                    <li>• Industry based Projects</li>
+                                    <li>• Industry graded Certificates</li>
+                                    <li>• Doubt Clearing Sessions</li>
+                                    <li>• Quiz & Assessments</li>
+                                    <li>• Personal Dashboard</li>
+                                    <br>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary mt-3">Start Learning</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="course-card bg-white text-center p-4">
+                            <div class="course-card-header bg-primary text-white py-3">
+                                <h5>Professional Program</h5>
+                                <h3>₹ 9,000/Course</h3>
+                            </div>
+                            <div class="mt-4">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-briefcase" style="font-size: 2rem; color: #6c757d;"></i>
+                                </div>
+                                <ul class="list-unstyled text-start">
+                                    <li>Everything in Mentor-Led, Plus:</li>
+                                    <li>• Aptitude Grooming</li>
+                                    <li>• Specific Resume Building</li>
+                                    <li>• Personality Development</li>
+                                    <li>• Group Discussion Session</li>
+                                    <li>• Placement Assistance</li>
+                                    <li>• LinkedIn Optimization Session</li>
+                                    <li>• Access to our Career Portal</li>
+                                    <li>• AI Mock Interview Portal</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary mt-3">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+
+
+
+    <div class="mentors">
+        <br>
+        <h1><b>Meet our Mentors</b></h1>
+        <br>
+        <h4><i>We are ready to assist, advice and encourage and listen as you begin <br>your professional courses at YHills.</i></h4>
+        <br>
+        <br>
+        <div class="index">
+            <button class="boxes">
+                <h2>Garima Mittal</h2>
+                <hr>
+                <h5>AutoCad Trainer</h5>
+                <br>
+                <img src="https://i.ibb.co/ZfWRQz6/c882c1be494be1b056f1389cb389ce2c.png" alt="" class="linkedin">
+            </button>
+            <button class="boxes">
+                <h2>Indrajeet Kumar</h2>
+                <hr>
+                <h5>Full Stack Developer</h5>
+                <br>
+                <img src="https://i.ibb.co/ZfWRQz6/c882c1be494be1b056f1389cb389ce2c.png" alt="" class="linkedin">
+            </button>
+            <button class="boxes">
+                <h2>Uttam Grade</h2>
+                <hr>
+                <h5>Data Scientist</h5>
+                <br>
+                <img src="https://i.ibb.co/ZfWRQz6/c882c1be494be1b056f1389cb389ce2c.png" alt="" class="linkedin">
+            </button>
+            <button class="boxes">
+                <h2>Vaishnavu C V</h2>
+                <hr>
+                <h5>Cyber Security Consultant</h5>
+                <br>
+                <img src="https://i.ibb.co/ZfWRQz6/c882c1be494be1b056f1389cb389ce2c.png" alt="" class="linkedin">
+            </button>
+            <button class="boxes">
+                <h2>T.Raja Stephensen</h2>
+                <hr>
+                <h5>Digital marketing Expert</h5>
+                <br>
+                <img src="https://i.ibb.co/ZfWRQz6/c882c1be494be1b056f1389cb389ce2c.png" alt="" class="linkedin">
+            </button>
+        </div>
+    </div>
+
+
+
+    <br><br><br>
+
+<hr>
+<br>
+
+    <div class="syllabus">
+
+        <div class="module">
+            <h1>Web Development Course Syllabus</h1>
+            <br>
+            <div class="module-header-active" onclick="toggleModule(this)">
+              <span id="clickM">Module 1</span>
+              <span class="toggle-icon">+</span>
+            </div>
+            <div class="module-content active">
+              <ul>
+                <li>HTML Lists, HTML Boilerplate</li>
+                <li>HTML Image Elements</li>
+                <li>HTML Links and Anchor Tags</li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+              <span id="clickM">Module 2</span>
+              <span class="toggle-icon">+</span>
+            </div>
+            <div class="module-content"></div>
+          </div>
+      
+          <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+              <span id="clickM">Module 3</span>
+              <span class="toggle-icon">+</span>
+            </div>
+            <div class="module-content"></div>
+          </div>
+      
+          <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+              <span id="clickM">Module 4</span>
+              <span class="toggle-icon">+</span>
+            </div>
+            <div class="module-content"></div>
+          </div>
+      
+          <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+              <span id="clickM">Module 5</span>
+              <span class="toggle-icon">+</span>
+            </div>
+            <div class="module-content"></div>
+          </div>
+          <br>
+          <a href="#">Looking for the complete module?</a>
+
+
+
+          <div class="download-section">
+            <br>
+            <h2 class="download-title">Download Full Syllabus</h2>
+            <div class="input-group">
+              <input type="email" placeholder="Email" />
+              <input type="tel" placeholder="Mobile" />
+            </div>
+            <button>Download Brochure</button>
+          </div>
+
+          
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="certify">
+        <div class="broly">
+            <h2>
+                Certificates you will receive post-completion of Web Development
+                Course
+              </h2><br>
+              <ul>
+                <li>
+                  We acknowledge your hard work and dedication towards the program by
+                  bestowing a course completion certificate from YHills.
+                </li>
+                <li>
+                  We also provide internship certificates from YHills and top-hole
+                  universities after successful completion of the internship.
+                </li>
+                <li>
+                  We purvey an Industry certificate from renowned and prestigious
+                  companies as an incentive.
+                </li>
+              </ul>
+        </div>
+
+        <div class="sample">
+            <img src="https://i.pinimg.com/originals/52/61/98/526198892b4ba9e2ca0bf648c2724f42.jpg" alt="Certificate Sample">
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="testimonial-section">
+        <div class="testimonial-left">
+            <h2>HEAR WHAT OUR STUDENTS SAYS</h2>
+            <hr>
+            <p>40,000+ Students have already learned with YHills!</p>
+        </div>
+        <div class="testimonial-right">
+            <div class="testimonial-card">
+                <p>
+                    I am from Pune and I have just completed the Web Development Course. 
+                    YHills helped me get my first job as a developer, so thank you!
+                </p>
+                <div class="testimonial-profile">
+                    <img src="https://via.placeholder.com/50" alt="Profile">
+                    <div>
+                        <h4>Shikha Talpade</h4>
+                        <span>Web Developer</span>
+                    </div>
+                    <span class="quote-icon">⭐⭐⭐⭐  4.3/5</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>
+                    The course is well-designed, easy to follow, and most importantly, it helped me gain the skills needed to build my own website.
+                </p>
+                <div class="testimonial-profile">
+                    <img src="https://via.placeholder.com/50" alt="Profile">
+                    <div>
+                        <h4>Shantanu Mishra</h4>
+                        <span>Student</span>
+                    </div>
+                    <span class="quote-icon">⭐⭐⭐⭐⭐  4.5/5</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>
+                    I'm so glad I took this course. I’ve been trying to learn how to build websites for a while now, but I never really knew where to start or what was important.
+                </p>
+                <div class="testimonial-profile">
+                    <img src="https://via.placeholder.com/50" alt="Profile">
+                    <div>
+                        <h4>Shantanu Mihinge</h4>
+                        <span>Student</span>
+                    </div>
+                    <span class="quote-icon">⭐⭐⭐⭐⭐ 4.8/5</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>
+                    I've been working on my web development skills for a while now, and I have to say that this course has been the most helpful one.
+                </p>
+                <div class="testimonial-profile">
+                    <img src="https://via.placeholder.com/50" alt="Profile">
+                    <div>
+                        <h4>Shreya Goel</h4>
+                        <span>Student</span>
+                    </div>
+                    <span class="quote-icon">⭐⭐⭐⭐  4.4/5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <br>    
+    <div class="footer">
+        <h1>A Beginner's Guide to Launching a Career in Web Development</h1><br>
+        <p>Being able to build a website from scratch is an invaluable skill in today’s technology-driven job market. You could, for instance, create the next big thing and make millions off advertising revenue. You’ll find this guide to be incredibly in-depth if you’re learning web development or thinking of becoming one. Not only will it explain how to become a web developer, but it’ll also show you the way to become a successful, well-paid one. The first thing you’ll need to do is decide whether or not web development is right for you.</p>
+        <br>
+        <a href="#">Read More Here</a>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+
+
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+        </script>
+</body>
+</html>
+
